@@ -1,0 +1,6 @@
+{
+  "name": "Concretize - Engenharia de Elite",
+  "description": "Landing page premium para a Concretize Engenharia, destacando precisão técnica, soluções estruturais e excelência em obras civis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
