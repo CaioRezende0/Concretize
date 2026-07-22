@@ -51,8 +51,8 @@ export default function Excellence() {
               className="relative rounded-sm overflow-hidden shadow-2xl shadow-slate-300/60 z-10 border-4 border-white bg-white"
             >
               <img
-                src="/images/office_engineers_1784220627878.jpg"
-                alt="Engenheiro Civil Kaique Miranda da Cruz analisando projetos da Concretize Engenharia em São Paulo"
+                src="/images/Imagem-1.png"
+                alt="Engenheiro Civil Kaique Miranda da Cruz analisando projetos da Concretize Engenharia em Horto"
                 referrerPolicy="no-referrer"
                 loading="lazy"
                 width={600}
@@ -77,7 +77,7 @@ export default function Excellence() {
                 15+
               </p>
               <p className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-slate-300 mt-1">
-                Anos de Experiência
+                Projetos Completos
               </p>
             </motion.div>
           </div>
@@ -86,7 +86,7 @@ export default function Excellence() {
           <div className="lg:col-span-6 flex flex-col space-y-10">
             <div className="space-y-4">
               <span className="text-xs font-bold text-[#f27a24] uppercase tracking-widest font-mono block">
-                CONFIANÇA E ENGENHARIA EM SÃO PAULO
+                CONFIANÇA E ENGENHARIA EM HORTOLÂNDIA
               </span>
               <h2 className="text-3xl sm:text-4.5xl font-black text-[#002d5b] tracking-tight leading-tight">
                 Empresa de Engenharia com Foco em Responsabilidade, Qualidade e
@@ -100,7 +100,7 @@ export default function Excellence() {
                 </strong>{" "}
                 é uma{" "}
                 <strong className="font-semibold text-[#002d5b]">
-                  empresa de engenharia civil em São Paulo
+                  empresa de engenharia civil em Hortolândia
                 </strong>{" "}
                 nascida com o compromisso inabalável de elevar os padrões de
                 qualidade técnica e atendimento personalizado. Sob a liderança

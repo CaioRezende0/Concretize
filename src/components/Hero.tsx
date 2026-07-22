@@ -1,6 +1,12 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { ArrowRight, ChevronDown, Activity, Compass, Settings } from 'lucide-react';
+import React from "react";
+import { motion } from "motion/react";
+import {
+  ArrowRight,
+  ChevronDown,
+  Activity,
+  Compass,
+  Settings,
+} from "lucide-react";
 
 interface HeroProps {
   onQuoteClick: () => void;
@@ -15,7 +21,7 @@ export default function Hero({ onQuoteClick, onServicesClick }: HeroProps) {
     >
       {/* Structural blueprint grid background overlay */}
       <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-      
+
       {/* Decorative architectural layouts */}
       <div className="absolute top-1/4 right-[-10%] w-[500px] h-[500px] border border-white/5 rounded-full pointer-events-none hidden lg:block" />
       <div className="absolute bottom-10 left-[5%] w-72 h-72 border border-white/5 rounded-xs rotate-12 pointer-events-none hidden lg:block" />
@@ -25,10 +31,8 @@ export default function Hero({ onQuoteClick, onServicesClick }: HeroProps) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
           {/* Main content */}
           <div className="lg:col-span-9 flex flex-col justify-center space-y-8">
-            
             {/* Tagline / Subtitle */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -43,44 +47,78 @@ export default function Hero({ onQuoteClick, onServicesClick }: HeroProps) {
               </span>
             </motion.div>
 
-             {/* Main Title with high impact typography */}
+            {/* Main Title with high impact typography */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] max-w-4xl"
             >
-              Sua <span className="text-[#f27a24]">Empresa de Engenharia Civil</span> de Confiança em São Paulo.
+              Sua{" "}
+              <span className="text-[#f27a24]">
+                Empresa de Engenharia Civil
+              </span>{" "}
+              de Confiança em Hortolândia.
             </motion.h1>
 
             {/* Premium Description Paragraph */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               className="text-lg sm:text-xl text-slate-100 max-w-3xl font-light leading-relaxed"
             >
-              A <strong className="font-semibold text-amber-300">Concretize Engenharia</strong> atende de forma integral a qualquer demanda em <strong className="font-semibold text-white">construção civil em São Paulo</strong>. Sob a responsabilidade do <strong className="font-semibold text-white">Engenheiro Civil Kaique Miranda da Cruz</strong>, operamos sob três pilares sólidos:
+              A{" "}
+              <strong className="font-semibold text-amber-300">
+                Concretize Engenharia
+              </strong>{" "}
+              atende de forma integral a qualquer demanda em{" "}
+              <strong className="font-semibold text-white">
+                construção civil em Hortolândia
+              </strong>
+              . Sob a responsabilidade do{" "}
+              <strong className="font-semibold text-white">
+                Engenheiro Civil Kaique Miranda da Cruz
+              </strong>
+              , operamos sob três pilares sólidos:
             </motion.p>
 
             {/* Core Pillars Bullet Points */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.25,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl font-sans"
             >
               <div className="flex items-center space-x-3 bg-white/5 border border-white/10 px-4 py-3 rounded-sm backdrop-blur-xs">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#f27a24] shrink-0" />
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-100">Responsabilidade</span>
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-100">
+                  Responsabilidade
+                </span>
               </div>
               <div className="flex items-center space-x-3 bg-white/5 border border-white/10 px-4 py-3 rounded-sm backdrop-blur-xs">
                 <span className="h-2.5 w-2.5 rounded-full bg-amber-400 shrink-0" />
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-100">Qualidade</span>
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-100">
+                  Qualidade
+                </span>
               </div>
               <div className="flex items-center space-x-3 bg-white/5 border border-white/10 px-4 py-3 rounded-sm backdrop-blur-xs">
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shrink-0" />
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-100">Preço Justo</span>
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-100">
+                  Preço Justo
+                </span>
               </div>
             </motion.div>
 
@@ -88,7 +126,11 @@ export default function Hero({ onQuoteClick, onServicesClick }: HeroProps) {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.3,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               className="flex flex-col sm:flex-row gap-5 pt-6"
             >
               <motion.button
@@ -110,7 +152,6 @@ export default function Hero({ onQuoteClick, onServicesClick }: HeroProps) {
                 Conheça nossos serviços
               </motion.button>
             </motion.div>
-
           </div>
         </div>
       </div>
@@ -124,10 +165,12 @@ export default function Hero({ onQuoteClick, onServicesClick }: HeroProps) {
           className="font-mono text-[10px] tracking-widest text-slate-300 space-y-2 uppercase bg-black/10 backdrop-blur-xs p-4 rounded-xs border border-white/5"
         >
           <p className="flex items-center justify-end gap-1.5">
-            <Settings className="h-3.5 w-3.5 animate-spin-slow text-[#f27a24]" /> COORD: 22.5404° S, 46.6333° W
+            <Settings className="h-3.5 w-3.5 animate-spin-slow text-[#f27a24]" />{" "}
+            COORD: 22.5404° S, 46.6333° W
           </p>
           <p className="flex items-center justify-end gap-1.5">
-            <Activity className="h-3.5 w-3.5 text-emerald-400" /> STRUCTURA_CORE_V4.2
+            <Activity className="h-3.5 w-3.5 text-emerald-400" />{" "}
+            STRUCTURA_CORE_V4.2
           </p>
           <p>PRECISION_METRIC: 99.998%</p>
         </motion.div>

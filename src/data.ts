@@ -75,39 +75,39 @@ export const PORTFOLIO: PortfolioItem[] = [
     id: "proj-1",
     title: "Reforma Residencial de Alto Padrão",
     category: "Construção e Reforma",
-    image: "/images/portfolio_residence_1784220658933.jpg",
+    image: "/images/Imagem-2.png",
     description:
       "Reforma e ampliação residencial de alto padrão executada com controle de prazos rigoroso, fino acabamento e responsabilidade técnica.",
     details: [
       "Área: 450 m²",
       "Estrutura: Concreto e Aço",
-      "Local: São Paulo - SP",
+      "Local: Hortolândia - SP",
     ],
   },
   {
     id: "proj-2",
     title: "Regularização de Edificação Comercial",
     category: "Regularização de Imóveis",
-    image: "/images/portfolio_office_1784220672146.jpg",
+    image: "/images/Imagem-3.png",
     description:
       "Processo completo de laudos técnicos de conformidade estrutural e aprovação de habite-se para centro empresarial.",
     details: [
       "Área: 3.200 m²",
       "Laudo: Conformidade Técnica",
-      "Local: São Paulo - SP",
+      "Local: Hortolândia - SP",
     ],
   },
   {
     id: "proj-3",
     title: "Projeto de LTA - Clínica ILPI Vovó Maria",
     category: "ILPI e LTA",
-    image: "/images/portfolio_industry_1784220684798.jpg",
+    image: "/images/Imagem-4.png",
     description:
       "Desenvolvimento do layout de acessibilidade, memorial descritivo e aprovação do LTA perante a Vigilância Sanitária Municipal.",
     details: [
       "Licenciamento: LTA Aprovado",
       "Especialidade: Acessibilidade NBR 9050",
-      "Local: São Paulo - SP",
+      "Local: Hortolândia - SP",
     ],
   },
 ];
@@ -136,9 +136,9 @@ export const DIFFERENTIALS: DifferentialItem[] = [
   },
   {
     id: "atend-sp",
-    title: "Especialistas em São Paulo",
+    title: "Especialistas em Hortolândia",
     description:
-      "Domínio total dos trâmites administrativos, códigos de obras e vigilância sanitária paulista.",
+      "Domínio total dos trâmites administrativos, códigos de obras e vigilância sanitária local.",
     iconName: "SearchCode",
   },
 ];
@@ -154,7 +154,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: 2,
     title: "Estudo Técnico",
     description:
-      "Análise de viabilidade estrutural, levantamento de campo ou regras locais em São Paulo.",
+      "Análise de viabilidade estrutural, levantamento de campo ou regras locais em Hortolândia.",
   },
   {
     number: 3,

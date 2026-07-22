@@ -1,13 +1,12 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { ChevronRight } from 'lucide-react';
-import { PROCESS_STEPS } from '../data';
+import React from "react";
+import { motion } from "motion/react";
+import { ChevronRight } from "lucide-react";
+import { PROCESS_STEPS } from "../data";
 
 export default function Process() {
   return (
     <section id="processo" className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Centered Heading */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
           <span className="text-sm font-bold text-[#f27a24] uppercase tracking-widest block font-mono">
@@ -17,14 +16,16 @@ export default function Process() {
             Nosso Processo de Engenharia Civil e Obras
           </h2>
           <p className="text-gray-500 font-light max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-            A jornada para a realização do seu projeto de construção civil, regularização de imóveis ou reforma em São Paulo segue etapas de rigor técnico e transparência absoluta, do atendimento à entrega final.
+            A jornada para a realização do seu projeto de construção civil,
+            regularização de imóveis ou reforma em Hortolândia segue etapas de
+            rigor técnico e transparência absoluta, do atendimento à entrega
+            final.
           </p>
           <div className="w-16 h-1 bg-[#f27a24] mx-auto rounded-full mt-2" />
         </div>
 
         {/* Steps Layout */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
-          
           {/* Connector lines on desktop */}
           <div className="absolute top-12 left-12 right-12 h-0.5 bg-slate-100 hidden lg:block z-0" />
 
@@ -33,7 +34,7 @@ export default function Process() {
               key={step.number}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: idx * 0.12 }}
               className="relative z-10 flex flex-col items-center text-center p-6 bg-slate-50 rounded-lg border border-slate-100 hover:border-orange-200 hover:bg-white hover:shadow-lg transition-all duration-300 group"
             >
@@ -44,7 +45,7 @@ export default function Process() {
                     {step.number}
                   </span>
                 </div>
-                
+
                 {/* Arrow inside layout for horizontal sequence flow on desktop */}
                 {idx < PROCESS_STEPS.length - 1 && (
                   <div className="absolute top-1/2 -right-8 -translate-y-1/2 text-slate-200 hidden lg:block group-hover:text-[#f27a24] group-hover:translate-x-1 transition-all duration-300">

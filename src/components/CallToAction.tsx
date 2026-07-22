@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { ArrowRight, Drill } from 'lucide-react';
+import React from "react";
+import { motion } from "motion/react";
+import { ArrowRight, Drill } from "lucide-react";
 
 interface CallToActionProps {
   onActionClick: () => void;
@@ -11,12 +11,11 @@ export default function CallToAction({ onActionClick }: CallToActionProps) {
     <section className="py-24 bg-[#002d5b] text-white relative overflow-hidden text-center">
       {/* Background radial soft light highlight */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-140 h-140 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-      
+
       {/* Structural subtle blueprint background */}
       <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
-        
         {/* Visual Accent */}
         <div className="mx-auto w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center rounded-full text-amber-400">
           <Drill className="h-6 w-6" />
@@ -29,7 +28,12 @@ export default function CallToAction({ onActionClick }: CallToActionProps) {
 
         {/* Subtitle */}
         <p className="text-lg text-slate-300 font-light max-w-2xl mx-auto">
-          Nossa equipe de <strong className="font-semibold text-white">construção civil em São Paulo</strong> está de prontidão para transformar seus planos em estruturas sólidas, eficientes, seguras e aprovadas pelos órgãos reguladores.
+          Nossa equipe de{" "}
+          <strong className="font-semibold text-white">
+            construção civil em Hortolândia
+          </strong>{" "}
+          está de prontidão para transformar seus planos em estruturas sólidas,
+          eficientes, seguras e aprovadas pelos órgãos reguladores.
         </p>
 
         {/* Solid Orange CTA */}

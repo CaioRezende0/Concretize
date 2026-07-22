@@ -1,37 +1,47 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { Building2, FileText, HeartPulse, ArrowUpRight } from 'lucide-react';
-import { SERVICES } from '../data';
+import React from "react";
+import { motion } from "motion/react";
+import { Building2, FileText, HeartPulse, ArrowUpRight } from "lucide-react";
+import { SERVICES } from "../data";
 
 // Helper to render Lucide Icons dynamically for Services
 const renderIcon = (name: string) => {
   switch (name) {
-    case 'Building2':
-      return <Building2 className="h-7 w-7 text-[#f27a24] group-hover:text-amber-400 group-hover:scale-110 transition-all duration-300" />;
-    case 'FileText':
-      return <FileText className="h-7 w-7 text-[#f27a24] group-hover:text-amber-400 group-hover:scale-110 transition-all duration-300" />;
-    case 'HeartPulse':
-      return <HeartPulse className="h-7 w-7 text-[#f27a24] group-hover:text-amber-400 group-hover:scale-110 transition-all duration-300" />;
+    case "Building2":
+      return (
+        <Building2 className="h-7 w-7 text-[#f27a24] group-hover:text-amber-400 group-hover:scale-110 transition-all duration-300" />
+      );
+    case "FileText":
+      return (
+        <FileText className="h-7 w-7 text-[#f27a24] group-hover:text-amber-400 group-hover:scale-110 transition-all duration-300" />
+      );
+    case "HeartPulse":
+      return (
+        <HeartPulse className="h-7 w-7 text-[#f27a24] group-hover:text-amber-400 group-hover:scale-110 transition-all duration-300" />
+      );
     default:
-      return <Building2 className="h-7 w-7 text-[#f27a24] group-hover:text-amber-400 group-hover:scale-110 transition-all duration-300" />;
+      return (
+        <Building2 className="h-7 w-7 text-[#f27a24] group-hover:text-amber-400 group-hover:scale-110 transition-all duration-300" />
+      );
   }
 };
 
 export default function Services() {
   return (
-    <section id="servicos" className="py-28 bg-gradient-to-b from-[#0b1f33] to-[#002d5b] text-white relative overflow-hidden">
+    <section
+      id="servicos"
+      className="py-28 bg-gradient-to-b from-[#0b1f33] to-[#002d5b] text-white relative overflow-hidden"
+    >
       {/* Background blueprint subtle line pattern */}
       <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#38bdf8_1px,transparent_1px),linear-gradient(to_bottom,#38bdf8_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
-      
+
       {/* Glowing accent sphere */}
       <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Centered Heading with custom Orange underline marker */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
           <span className="text-xs font-bold text-amber-300 uppercase tracking-widest block font-mono">
-            CONSTRUÇÃO CIVIL, REFORMAS E LICENCIAMENTO EM SÃO PAULO
+            CONSTRUÇÃO CIVIL, REFORMAS E LICENCIAMENTO EM HORTOLÂNDIA
           </span>
           <h2 className="text-3xl sm:text-4.5xl font-black tracking-tight text-white leading-tight">
             Serviços Especializados de Engenharia Civil
@@ -46,8 +56,12 @@ export default function Services() {
               key={service.id}
               initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.8,
+                delay: idx * 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               whileHover={{ y: -8 }}
               className="group p-8 bg-white/[0.03] rounded-xs border border-white/10 hover:border-amber-400/50 backdrop-blur-md transition-all duration-300 flex flex-col justify-between relative overflow-hidden shadow-xl"
             >
