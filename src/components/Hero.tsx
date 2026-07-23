@@ -62,7 +62,10 @@ export default function Hero({ onQuoteClick, onServicesClick }: HeroProps) {
               <span className="text-[#f27a24]">
                 Empresa de Engenharia Civil
               </span>{" "}
-              de Confiança em Hortolândia.
+              de Confiança em <br />
+              <span className="text-4xl text-[#f27a24]">
+                Hortolândia, Campinas e São Paulo.
+              </span>
             </motion.h1>
 
             {/* Premium Description Paragraph */}

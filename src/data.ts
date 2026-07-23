@@ -49,9 +49,9 @@ export const EXCELLENCE_CARDS: ExcellenceCard[] = [
 export const SERVICES: ServiceCard[] = [
   {
     id: "const-ref",
-    title: "Construção e Reforma",
+    title: "Projetos, Construções e Reformas",
     description:
-      "Execução e gerenciamento completo de obras residenciais e comerciais de alta complexidade com rigor técnico e acabamento de alto nível.",
+      "Criação de projetos estruturais, execução de obras e reformas residenciais e comerciais com atenção aos detalhes e qualidade superior.",
     iconName: "Building2",
   },
   {
