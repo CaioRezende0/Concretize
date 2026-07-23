@@ -65,28 +65,22 @@ export default function ContactForm() {
       ? data.message.trim()
       : "Não informado.";
 
-    const text = `*Nova Solicitação de Orçamento*
+    const message = [
+      "*Nova Solicitação de Orçamento*",
+      "",
+      `*Nome:* ${data.name.trim()}`,
+      `*Telefone:* ${data.phone.trim()}`,
+      `*E-mail:* ${data.email.trim()}`,
+      `*Serviço:* ${projectLabel}`,
+      "",
+      "*Descrição do projeto:*",
+      data.message.trim() || "Não informado.",
+      "",
+      "━━━━━━━━━━━━━━━━━━",
+      "Solicitação enviada através da Landing Page da Concretize Engenharia.",
+    ].join("\n");
 
-- *Nome:*
-${data.name.trim()}
-
-- *Telefone:*
-${data.phone.trim()}
-
-- *E-mail:*
-${data.email.trim()}
-
-- *Serviço desejado:*
-${projectLabel}
-
-- *Descrição do projeto:*
-${description}
-
-━━━━━━━━━━━━━━━━━━
-
-Solicitação enviada através da Landing Page da Concretize Engenharia.`;
-
-    return `https://wa.me/5519982535257?text=${encodeURIComponent(text)}`;
+    return `https://wa.me/5519982535257?text=${encodeURIComponent(message)}`;
   };
 
   const handleSubmit = (e: React.FormEvent) => {

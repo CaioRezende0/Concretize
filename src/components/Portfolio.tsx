@@ -1,32 +1,52 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight, MapPin, X, Info, Hammer, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
-import { PORTFOLIO } from '../data';
-import { PortfolioItem } from '../types';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
+import React, { useState, useCallback, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  ArrowUpRight,
+  MapPin,
+  X,
+  Info,
+  Hammer,
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { PORTFOLIO } from "../data";
+import { PortfolioItem } from "../types";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 export default function Portfolio() {
-  const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
+  const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(
+    null,
+  );
 
   // Setup Embla Carousel
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: 'start' },
+    { loop: true, align: "start" },
     [
       Autoplay({
         delay: 4000,
         stopOnInteraction: true,
         stopOnMouseEnter: true,
       }),
-    ]
+    ],
   );
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
-  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
-  const scrollTo = useCallback((index: number) => emblaApi && emblaApi.scrollTo(index), [emblaApi]);
+  const scrollPrev = useCallback(
+    () => emblaApi && emblaApi.scrollPrev(),
+    [emblaApi],
+  );
+  const scrollNext = useCallback(
+    () => emblaApi && emblaApi.scrollNext(),
+    [emblaApi],
+  );
+  const scrollTo = useCallback(
+    (index: number) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi],
+  );
 
   const onInit = useCallback((api: any) => {
     setScrollSnaps(api.scrollSnapList());
@@ -40,22 +60,24 @@ export default function Portfolio() {
     if (!emblaApi) return;
     onInit(emblaApi);
     onSelect(emblaApi);
-    emblaApi.on('reInit', onInit);
-    emblaApi.on('select', onSelect);
+    emblaApi.on("reInit", onInit);
+    emblaApi.on("select", onSelect);
   }, [emblaApi, onInit, onSelect]);
 
-  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
-    if (e.key === 'ArrowLeft') {
-      scrollPrev();
-    } else if (e.key === 'ArrowRight') {
-      scrollNext();
-    }
-  }, [scrollPrev, scrollNext]);
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        scrollPrev();
+      } else if (e.key === "ArrowRight") {
+        scrollNext();
+      }
+    },
+    [scrollPrev, scrollNext],
+  );
 
   return (
     <section id="portfolio" className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Header Row */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
           <div className="space-y-4 max-w-2xl">
@@ -66,10 +88,11 @@ export default function Portfolio() {
               Portfólio de Projetos
             </h2>
             <p className="text-gray-500 font-light leading-relaxed">
-              Explore nossa seleção de obras que unem técnica apurada, rigor de engenharia estrutural e design moderno de alto impacto.
+              Explore nossa seleção de obras que unem técnica apurada, rigor de
+              engenharia estrutural e design moderno de alto impacto.
             </p>
           </div>
-          
+
           <div>
             <button
               onClick={() => setSelectedProject(PORTFOLIO[0])}
@@ -81,88 +104,29 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* Desktop 3-Column Grid (Hidden on screens < 1024px) */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-8">
-          {PORTFOLIO.map((project, idx) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group bg-slate-50 rounded-lg overflow-hidden border border-gray-100 hover:border-gray-200 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col h-full cursor-pointer"
-              onClick={() => setSelectedProject(project)}
-            >
-              {/* Image Container */}
-              <div className="relative aspect-video sm:aspect-4/3 overflow-hidden bg-slate-200">
-                <img
-                  src={project.image}
-                  alt={`${project.title} - Projeto de Engenharia Civil da Concretize Engenharia`}
-                  referrerPolicy="no-referrer"
-                  loading="lazy"
-                  width={400}
-                  height={300}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-[#002d5b]/80 via-[#002d5b]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <span className="text-white text-xs font-semibold bg-[#f27a24] py-1.5 px-3 rounded-full flex items-center gap-1">
-                    <Info className="h-3.5 w-3.5" /> Clique para ver Ficha Técnica
-                  </span>
-                </div>
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-sm text-xs font-semibold text-[#002d5b] uppercase shadow-sm">
-                  {project.category}
-                </div>
-              </div>
-
-              {/* Card Body */}
-              <div className="p-6 flex flex-col justify-between flex-grow">
-                <div className="space-y-3">
-                  <h3 className="text-lg font-bold text-[#002d5b] group-hover:text-[#f27a24] transition-colors duration-200">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 font-light line-clamp-2">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Tags & Quick Specs */}
-                <div className="mt-6 pt-4 border-t border-gray-100 flex flex-wrap gap-2">
-                  {project.details.map((detail, dIdx) => (
-                    <span
-                      key={dIdx}
-                      className="text-[10px] font-mono text-gray-600 bg-white border border-gray-200/80 rounded-sm px-2.5 py-1"
-                    >
-                      {detail}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Mobile/Tablet Carousel (Visible on screens < 1024px) */}
-        <div 
-          className="lg:hidden relative focus:outline-hidden"
+        <div
+          className="relative focus:outline-hidden select-none"
           onKeyDown={handleKeyDown}
           tabIndex={0}
           role="region"
           aria-roledescription="carrossel"
           aria-label="Projetos do Portfólio Concretize"
         >
-          {/* Main Viewport */}
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex -ml-4">
-              {PORTFOLIO.map((project) => (
-                <div 
-                  key={project.id} 
-                  className="flex-[0_0_100%] md:flex-[0_0_50%] pl-4 min-w-0"
+              {PORTFOLIO.map((project, idx) => (
+                <div
+                  key={project.id}
+                  className="pl-4 min-w-0 flex-[0_0_100%] lg:flex-[0_0_calc(100%/3)]"
                 >
-                  <div
-                    className="group bg-slate-50 rounded-lg overflow-hidden border border-gray-100 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col h-full cursor-pointer"
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: idx * 0.08 }}
+                    className="group bg-slate-50 rounded-lg overflow-hidden border border-gray-100 hover:border-gray-200 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col h-full cursor-pointer"
                     onClick={() => setSelectedProject(project)}
                   >
-                    {/* Image Container */}
                     <div className="relative aspect-video sm:aspect-4/3 overflow-hidden bg-slate-200">
                       <img
                         src={project.image}
@@ -171,66 +135,70 @@ export default function Portfolio() {
                         loading="lazy"
                         width={400}
                         height={300}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-linear-to-t from-[#002d5b]/80 via-[#002d5b]/10 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <span className="text-white text-xs font-semibold bg-[#f27a24] py-1 px-2.5 rounded-full flex items-center gap-1">
-                          <Info className="h-3 w-3" /> Toque para ver detalhes
+                      <div className="absolute inset-0 bg-linear-to-t from-[#002d5b]/80 via-[#002d5b]/10 to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 lg:p-6">
+                        <span className="text-white text-xs font-semibold bg-[#f27a24] py-1 px-2.5 lg:py-1.5 lg:px-3 rounded-full flex items-center gap-1">
+                          <Info className="h-3 w-3 lg:h-3.5 lg:w-3.5" />{" "}
+                          {idx === 0
+                            ? "Toque para ver detalhes"
+                            : "Clique para ver ficha técnica"}
                         </span>
                       </div>
-                      <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-2.5 py-0.5 rounded-sm text-[10px] font-semibold text-[#002d5b] uppercase shadow-sm">
+                      <div className="absolute top-3 left-3 lg:top-4 lg:left-4 bg-white/95 backdrop-blur-xs px-2.5 py-0.5 lg:px-3 lg:py-1 rounded-sm text-[10px] lg:text-xs font-semibold text-[#002d5b] uppercase shadow-sm">
                         {project.category}
                       </div>
                     </div>
 
-                    {/* Card Body */}
-                    <div className="p-5 flex flex-col justify-between flex-grow">
-                      <div className="space-y-2">
-                        <h3 className="text-base font-bold text-[#002d5b] group-hover:text-[#f27a24] transition-colors duration-200">
+                    <div className="p-5 lg:p-6 flex flex-col justify-between grow">
+                      <div className="space-y-2 lg:space-y-3">
+                        <h3 className="text-base lg:text-lg font-bold text-[#002d5b] group-hover:text-[#f27a24] transition-colors duration-200">
                           {project.title}
                         </h3>
-                        <p className="text-xs text-gray-500 font-light line-clamp-2">
+                        <p className="text-xs lg:text-sm text-gray-500 font-light line-clamp-2">
                           {project.description}
                         </p>
                       </div>
 
-                      {/* Tags & Quick Specs */}
-                      <div className="mt-4 pt-3 border-t border-gray-100 flex flex-wrap gap-1.5">
+                      <div className="mt-4 lg:mt-6 pt-3 lg:pt-4 border-t border-gray-100 flex flex-wrap gap-1.5 lg:gap-2">
                         {project.details.map((detail, dIdx) => (
                           <span
                             key={dIdx}
-                            className="text-[9px] font-mono text-gray-600 bg-white border border-gray-100 rounded-sm px-2 py-0.5"
+                            className="text-[9px] lg:text-[10px] font-mono text-gray-600 bg-white border border-gray-200/80 rounded-sm px-2 py-0.5 lg:px-2.5 lg:py-1"
                           >
                             {detail}
                           </span>
                         ))}
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Navigation Controls */}
           <div className="flex items-center justify-between mt-6">
-            {/* Dots */}
-            <div className="flex space-x-1.5" role="group" aria-label="Slides do carrossel">
+            <div
+              className="flex space-x-1.5"
+              role="group"
+              aria-label="Slides do carrossel"
+            >
               {scrollSnaps.map((_, index) => (
                 <button
                   key={index}
                   type="button"
                   onClick={() => scrollTo(index)}
                   className={`h-2 transition-all duration-300 rounded-full cursor-pointer ${
-                    index === selectedIndex ? 'w-6 bg-[#f27a24]' : 'w-2 bg-slate-300 hover:bg-slate-400'
+                    index === selectedIndex
+                      ? "w-6 bg-[#f27a24]"
+                      : "w-2 bg-slate-300 hover:bg-slate-400"
                   }`}
                   aria-label={`Ir para slide ${index + 1}`}
-                  aria-current={index === selectedIndex ? 'true' : 'false'}
+                  aria-current={index === selectedIndex ? "true" : "false"}
                 />
               ))}
             </div>
 
-            {/* Arrows */}
             <div className="flex space-x-2">
               <button
                 type="button"
@@ -271,7 +239,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 350 }}
+              transition={{ type: "spring", damping: 25, stiffness: 350 }}
               className="bg-white rounded-lg shadow-2xl max-w-2xl w-full overflow-hidden relative z-10 border border-slate-100 max-h-[90vh] flex flex-col"
             >
               {/* Image Header */}
@@ -285,7 +253,7 @@ export default function Portfolio() {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/20 to-transparent" />
-                
+
                 {/* Close Button */}
                 <button
                   onClick={() => setSelectedProject(null)}
@@ -328,13 +296,11 @@ export default function Portfolio() {
                         className="flex items-center space-x-3 bg-slate-50 p-3 rounded-md border border-slate-100"
                       >
                         <CheckCircle2 className="h-4.5 w-4.5 text-[#f27a24] shrink-0" />
-                        <span className="text-sm text-slate-700 font-medium font-mono">{detail}</span>
+                        <span className="text-sm text-slate-700 font-medium font-mono">
+                          {detail}
+                        </span>
                       </div>
                     ))}
-                    <div className="flex items-center space-x-3 bg-slate-50 p-3 rounded-md border border-slate-100">
-                      <CheckCircle2 className="h-4.5 w-4.5 text-[#f27a24] shrink-0" />
-                      <span className="text-sm text-slate-700 font-medium font-mono">Normas: ABNT NBR ISO 9001</span>
-                    </div>
                   </div>
                 </div>
 

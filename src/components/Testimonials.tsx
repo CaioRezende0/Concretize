@@ -79,108 +79,49 @@ export default function Testimonials() {
           <div className="w-16 h-1 bg-[#f27a24] mx-auto rounded-full mt-2" />
         </div>
 
-        {/* Desktop 3-Column Testimonials Grid (Hidden on screens < 1024px) */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-8">
-          {TESTIMONIALS.map((test, idx) => (
-            <motion.div
-              key={test.id}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
-              className="p-8 bg-white rounded-lg border border-slate-100 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col justify-between"
-            >
-              <div className="space-y-6">
-                {/* Header: Stars & Quote Icon */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-0.5">
-                    {[...Array(test.stars)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-4.5 w-4.5 text-amber-400 fill-amber-400"
-                      />
-                    ))}
-                  </div>
-                  <Quote className="h-8 w-8 text-[#002d5b]/10 transform scale-x-[-1]" />
-                </div>
-
-                {/* The Quote */}
-                <p className="text-gray-600 font-light italic text-sm sm:text-base leading-relaxed">
-                  "{test.quote}"
-                </p>
-              </div>
-
-              {/* Author Footer */}
-              <div className="mt-8 pt-6 border-t border-slate-50 flex items-center space-x-3.5">
-                {/* Initials Avatar Bubble */}
-                <div
-                  className={`h-11 w-11 rounded-full ${test.avatarColor} text-white flex items-center justify-center font-bold text-sm shadow-sm select-none shrink-0`}
-                >
-                  {test.author
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")
-                    .toUpperCase()}
-                </div>
-
-                {/* Name & Credentials */}
-                <div>
-                  <h4 className="text-sm font-bold text-[#002d5b]">
-                    {test.author}
-                  </h4>
-                  <p className="text-[11px] font-medium text-[#f27a24] uppercase tracking-wider font-mono">
-                    {test.role} //{" "}
-                    <span className="text-gray-400">{test.company}</span>
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Mobile/Tablet Carousel (Visible on screens < 1024px) */}
         <div
-          className="lg:hidden relative focus:outline-hidden"
+          className="relative focus:outline-hidden select-none"
           onKeyDown={handleKeyDown}
           tabIndex={0}
           role="region"
           aria-roledescription="carrossel"
           aria-label="Depoimentos de Clientes"
         >
-          {/* Main Viewport */}
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex -ml-4">
-              {TESTIMONIALS.map((test) => (
+              {TESTIMONIALS.map((test, idx) => (
                 <div
                   key={test.id}
-                  className="flex-[0_0_100%] md:flex-[0_0_50%] pl-4 min-w-0"
+                  className="pl-4 min-w-0 flex-[0_0_100%] lg:flex-[0_0_calc(100%/3)]"
                 >
-                  <div className="p-7 bg-white rounded-lg border border-slate-100 shadow-xs hover:shadow-md transition-all duration-300 relative flex flex-col justify-between h-full">
-                    <div className="space-y-4">
-                      {/* Header: Stars & Quote Icon */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    className="p-7 lg:p-8 bg-white rounded-lg border border-slate-100 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col justify-between h-full"
+                  >
+                    <div className="space-y-4 lg:space-y-6">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-0.5">
                           {[...Array(test.stars)].map((_, i) => (
                             <Star
                               key={i}
-                              className="h-4 w-4 text-amber-400 fill-amber-400"
+                              className="h-4 w-4 lg:h-4.5 lg:w-4.5 text-amber-400 fill-amber-400"
                             />
                           ))}
                         </div>
-                        <Quote className="h-7 w-7 text-[#002d5b]/10 transform scale-x-[-1]" />
+                        <Quote className="h-7 w-7 lg:h-8 lg:w-8 text-[#002d5b]/10 transform scale-x-[-1]" />
                       </div>
 
-                      {/* The Quote */}
-                      <p className="text-gray-600 font-light italic text-xs sm:text-sm leading-relaxed">
+                      <p className="text-gray-600 font-light italic text-xs sm:text-sm lg:text-sm leading-relaxed">
                         "{test.quote}"
                       </p>
                     </div>
 
-                    {/* Author Footer */}
-                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center space-x-3">
-                      {/* Initials Avatar Bubble */}
+                    <div className="mt-6 lg:mt-8 pt-4 lg:pt-6 border-t border-slate-100 flex items-center space-x-3">
                       <div
-                        className={`h-10 w-10 rounded-full ${test.avatarColor} text-white flex items-center justify-center font-bold text-xs shadow-sm select-none shrink-0`}
+                        className={`h-10 w-10 lg:h-11 lg:w-11 rounded-full ${test.avatarColor} text-white flex items-center justify-center font-bold text-xs lg:text-sm shadow-sm select-none shrink-0`}
                       >
                         {test.author
                           .split(" ")
@@ -189,26 +130,23 @@ export default function Testimonials() {
                           .toUpperCase()}
                       </div>
 
-                      {/* Name & Credentials */}
                       <div>
-                        <h4 className="text-xs font-bold text-[#002d5b]">
+                        <h4 className="text-xs lg:text-sm font-bold text-[#002d5b]">
                           {test.author}
                         </h4>
-                        <p className="text-[9px] font-medium text-[#f27a24] uppercase tracking-wider font-mono">
+                        <p className="text-[9px] lg:text-[11px] font-medium text-[#f27a24] uppercase tracking-wider font-mono">
                           {test.role || "Cliente Satisfeito"}{" "}
                           {test.company ? `// ${test.company}` : ""}
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Navigation Controls */}
           <div className="flex items-center justify-between mt-6">
-            {/* Dots */}
             <div
               className="flex space-x-1.5"
               role="group"
@@ -230,7 +168,6 @@ export default function Testimonials() {
               ))}
             </div>
 
-            {/* Arrows */}
             <div className="flex space-x-2">
               <button
                 type="button"
