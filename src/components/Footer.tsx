@@ -215,6 +215,17 @@ export default function Footer() {
             <p className="mt-1 text-slate-600">
               Precision in Every Detail. CRM_CREA v9.41
             </p>
+            <p className="mt-1 text-slate-500">
+              Site desenvolvido pela{" "}
+              <a
+                href="https://www.instagram.com/caio.techdev/"
+                className="text-[#f27a24] hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                CaioTech
+              </a>
+            </p>
           </div>
 
           {/* Certifications and scroll top button */}

@@ -74,7 +74,8 @@ export default function Testimonials() {
             OPINIÃO DOS CLIENTES
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#002d5b] tracking-tight">
-            Depoimentos de quem confia em nosso Engenheiro Civil em Hortolândia
+            Depoimentos de quem confia em nosso Engenheiro Civil em <br />{" "}
+            <span className="text-xl">Hortolândia, Campinas e São Paulo</span>
           </h2>
           <div className="w-16 h-1 bg-[#f27a24] mx-auto rounded-full mt-2" />
         </div>

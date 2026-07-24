@@ -31,7 +31,8 @@ export default function Differentials() {
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#002d5b] tracking-tight leading-snug">
               Nossos diferenciais em engenharia civil garantem a qualidade,
-              segurança e preço justo de nossas obras em Hortolândia.
+              segurança e preço justo de nossas obras em <br />{" "}
+              <span className="text-xl">Hortolândia, Campinas e São Paulo</span>
             </h2>
             <div className="w-12 h-1 bg-[#f27a24] rounded-full" />
           </div>

@@ -63,8 +63,12 @@ export default function Hero({ onQuoteClick, onServicesClick }: HeroProps) {
                 Empresa de Engenharia Civil
               </span>{" "}
               de Confiança em <br />
-              <span className="text-4xl text-[#f27a24]">
-                Hortolândia, Campinas e São Paulo.
+              <span className="text-2xl sm:text-3xl lg:text-5xl font-black tracking-tight leading-[1.1] max-w-4xl text-[#f27a24]">
+                <ul>
+                  <li>Hortolândia</li>
+                  <li>Campinas e Região</li>
+                  <li>Capital SP</li>
+                </ul>
               </span>
             </motion.h1>
 

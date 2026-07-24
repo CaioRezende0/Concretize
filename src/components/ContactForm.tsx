@@ -130,8 +130,9 @@ export default function ContactForm() {
               <p className="text-gray-500 font-light leading-relaxed">
                 Nossa equipe de engenharia está pronta para analisar seu projeto
                 de construção, reforma comercial ou residencial, ou
-                regularização LTA/ILPI em Hortolândia. Preencha o formulário
-                para solicitar seu orçamento de engenharia detalhado.
+                regularização LTA/ILPI em Hortolândia, Campinas e São Paulo.
+                Preencha o formulário para solicitar seu orçamento de engenharia
+                detalhado.
               </p>
             </div>
 

@@ -100,7 +100,8 @@ export default function Excellence() {
                 </strong>{" "}
                 é uma{" "}
                 <strong className="font-semibold text-[#002d5b]">
-                  empresa de engenharia civil em Hortolândia
+                  empresa de engenharia civil em Hortolândia, Campinas e São
+                  Paulo
                 </strong>{" "}
                 nascida com o compromisso inabalável de elevar os padrões de
                 qualidade técnica e atendimento personalizado. Sob a liderança
