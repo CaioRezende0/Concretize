@@ -6,16 +6,37 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 export default function Testimonials() {
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const mediaQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const updateDeviceMode = () => setIsTouchDevice(!mediaQuery.matches);
+
+    updateDeviceMode();
+    mediaQuery.addEventListener?.("change", updateDeviceMode);
+
+    return () => mediaQuery.removeEventListener?.("change", updateDeviceMode);
+  }, []);
+
   // Setup Embla Carousel
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "start" },
-    [
-      Autoplay({
-        delay: 4000,
-        stopOnInteraction: true,
-        stopOnMouseEnter: true,
-      }),
-    ],
+    {
+      loop: true,
+      align: "start",
+      containScroll: "trimSnaps",
+      slidesToScroll: 1,
+    },
+    !isTouchDevice
+      ? [
+          Autoplay({
+            delay: 4000,
+            stopOnInteraction: true,
+            stopOnMouseEnter: true,
+          }),
+        ]
+      : [],
   );
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -44,10 +65,24 @@ export default function Testimonials() {
 
   useEffect(() => {
     if (!emblaApi) return;
+
     onInit(emblaApi);
     onSelect(emblaApi);
+
+    const handleResize = () => {
+      emblaApi.reInit();
+      onSelect(emblaApi);
+    };
+
     emblaApi.on("reInit", onInit);
     emblaApi.on("select", onSelect);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      emblaApi.off("reInit", onInit);
+      emblaApi.off("select", onSelect);
+      window.removeEventListener("resize", handleResize);
+    };
   }, [emblaApi, onInit, onSelect]);
 
   const handleKeyDown = useCallback(
@@ -88,7 +123,11 @@ export default function Testimonials() {
           aria-roledescription="carrossel"
           aria-label="Depoimentos de Clientes"
         >
-          <div className="overflow-hidden" ref={emblaRef}>
+          <div
+            className="overflow-hidden"
+            ref={emblaRef}
+            style={{ touchAction: "pan-y" }}
+          >
             <div className="flex -ml-4">
               {TESTIMONIALS.map((test, idx) => (
                 <div
